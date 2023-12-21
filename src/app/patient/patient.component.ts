@@ -131,7 +131,7 @@ export class PatientComponent implements OnInit {
   // }
 
   fetchAppointments(): void {
-    this.http.get('http://localhost:3000/api/v1/users/me').subscribe(
+    this.http.get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/me').subscribe(
       (response: any) => {
         this.patientData = response.data;
         // console.log(response.data);
@@ -145,7 +145,7 @@ export class PatientComponent implements OnInit {
   }
   addAppointment(slotid: any): void {
     this.http
-      .post('http://localhost:3000/api/v1/appointments/', slotid)
+      .post('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/appointments/', slotid)
       .subscribe((response: any) => {
         console.log(slotid);
         this.fetchAppointments();
@@ -162,7 +162,7 @@ export class PatientComponent implements OnInit {
 
   getDoctors(): void {
     this.http
-      .get('http://localhost:3000/api/v1/users/?role=doctor')
+      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/?role=doctor')
       .subscribe((response: any) => {
         // console.log(response.data);
         this.Doctors = response.data.users;
@@ -172,7 +172,7 @@ export class PatientComponent implements OnInit {
 
   getDoctorAppointment(id: any): void {
     this.http
-      .get('http://localhost:3000/api/v1/users/doctorSlots/' + id)
+      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/doctorSlots/' + id)
       .subscribe((response: any) => {
         console.log(response);
         this.selectedSlots = response.data.slots;
@@ -185,7 +185,7 @@ export class PatientComponent implements OnInit {
     if (indx > -1) {
       this.http
         .delete(
-          'http://localhost:3000/api/v1/appointments/' +
+          'https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/appointments/' +
             this.appointments[indx]._id
         )
         .subscribe((response) => {
