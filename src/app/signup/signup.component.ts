@@ -34,7 +34,7 @@ export class SignupComponent {
     };
     //Send the user registration data to the backend
     this.http
-      .post<any>('http://127.0.0.1:3000/api/v1/users/signup', userData)
+      .post<any>('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/signup', userData)
       .subscribe(
         (response) => {
           this.registrationSuccess = true;
