@@ -38,7 +38,7 @@ export class DoctorComponent implements OnInit {
   }
   getDoctor() {
     this.http
-      .get('http://localhost:3000/api/v1/users/me')
+      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/me')
       .subscribe((response: any) => {
         this.doctorData = response.data;
         console.log(response.data);
@@ -64,7 +64,7 @@ export class DoctorComponent implements OnInit {
   // }
   addSlot(slot: getslots): void {
     this.http
-      .post('http://localhost:3000/api/v1/slots', slot)
+      .post('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/slots', slot)
       .subscribe((response: any) => {
         this.getDoctor();
         console.log(response.data);
@@ -82,7 +82,7 @@ export class DoctorComponent implements OnInit {
     const indx = this.slots.indexOf(slot);
     if (indx > -1) {
       this.http
-        .delete('http://localhost:3000/api/v1/slots/' + this.slots[indx]._id)
+        .delete('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/slots/' + this.slots[indx]._id)
         .subscribe((response) => {
           this.slots.splice(indx, 1);
           this.getDoctor();
