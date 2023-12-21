@@ -35,7 +35,7 @@ export class LoginComponent {
     };
     //send data of user
     this.http
-      .post<any>('http://127.0.0.1:3000/api/v1/users/login', data)
+      .post<any>('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/login', data)
       .subscribe(
         (response: any) => {
           localStorage.setItem('token', response.token);
