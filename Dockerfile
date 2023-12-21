@@ -12,6 +12,6 @@ RUN chown -R 1008230000:0 /.npm
 RUN chown -R 1008230000:0 /app/.angular
 USER 1008230000
 COPY . .
-RUN chown -R 1008230000:0 /app/src/environments/environments.ts
-RUN sed -i "s|DEFAULT_API_URL|$API_URL|g" /app/src/environments/environments.ts
+RUN chown -R 1008230000:0 /app/src/environments/environment.ts
+RUN sed -i "s|DEFAULT_API_URL|$API_URL|g" /app/src/environments/environment.ts
 CMD ["npm", "start"]
