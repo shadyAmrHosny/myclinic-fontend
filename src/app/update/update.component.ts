@@ -56,7 +56,7 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {}
   getDoctors(): void {
     this.http
-      .get('http://localhost:3000/api/v1/users/?role=doctor')
+      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/?role=doctor')
       .subscribe((response: any) => {
         // console.log(response.data);
         this.Doctors = response.data.users;
@@ -66,7 +66,7 @@ export class UpdateComponent implements OnInit {
 
   getDoctorAppointment(id: any): void {
     this.http
-      .get('http://localhost:3000/api/v1/users/doctorSlots/' + this.doctorId)
+      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/doctorSlots/' + this.doctorId)
       .subscribe((response: any) => {
         console.log();
         this.selectedSlots = response.data.slots;
