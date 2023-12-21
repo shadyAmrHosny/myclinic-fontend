@@ -1,0 +1,72 @@
+<form
+  class="patientcont"
+  (ngSubmit)="addAppointment(slotid)"
+  #appintmentForm="ngForm"
+  novalidate
+>
+  <button class="btnnn" (click)="logout()">Logout</button>
+  <div class="hello" let dr of Doctors>Hello, {{ patientName }}</div>
+  <h1>My Appointments</h1>
+  <div class="cont">
+    <div class="table">
+      <div class="appointment">Appointment</div>
+      <div class="table-text">Time</div>
+      <div class="table-text">Doctor</div>
+      <div class="table-text">Edit</div>
+      <div class="table-text">Cancel</div>
+    </div>
+    <div class="contdata" *ngFor="let appointment of appointments">
+      <div>{{ appointment.slot.date }}</div>
+      <div>{{ appointment.slot.hour }}</div>
+      <div>{{ appointment.slot.doctor.name }}</div>
+      <button class="edit">Edit</button>
+      <button class="cancel" (click)="cancelAppointment(appointment)">
+        Cancel
+      </button>
+    </div>
+  </div>
+  <h1>Create New Appointment</h1>
+  <div class="newcont">
+    <div class="choose">
+      <div>Choose Doctor</div>
+      <select
+        name="doctor"
+        required
+        [(ngModel)]="doctorId"
+        (click)="getDoctorAppointment(doctorId)"
+      >
+        <option value="" disabled selected>Choose Dr</option>
+        <option *ngFor="let doctor of Doctors" [value]="doctor._id">
+          {{ doctor.name }}
+        </option>
+      </select>
+    </div>
+    <div class="newappointment">
+      <div>Appointments</div>
+      <select name="slot" id="slot" required [(ngModel)]="slotid.slot">
+        <option value="" disabled selected>Appointments</option>
+        <option *ngFor="let slot of selectedSlots" [value]="slot._id">
+          {{ slot.date }}---{{ slot.hour }}
+        </option>
+      </select>
+    </div>
+    <!-- <div class="m2 p2">
+      <label for="slot" class="m-2">choose slot :</label>
+      <select name="slot" id="slot" required [(ngModel)]="slotid.slot">
+        <option>Select A Slot</option>
+        <option *ngFor="let doc of selectedSlots" [value]="doc._id">
+          {{ doc.date }} ---- {{ doc.hour }}
+        </option>
+      </select>
+    </div> -->
+  </div>
+  <button
+    class="reserve"
+    type="submit"
+    value="Reserve"
+    name="reserve"
+    id="reserve"
+  >
+    RESERVE
+  </button>
+</form>

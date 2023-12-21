@@ -1,0 +1,21 @@
+#container {
+  border: 2px solid black;
+  margin-left: 320px;
+  margin-top: 50px;
+  width: 600px;
+}
+table {
+  border: 2px solid black;
+  width: 400px;
+
+  margin-left: 50px;
+}
+td {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+#UserT {
+  margin-left: 20px;
+}

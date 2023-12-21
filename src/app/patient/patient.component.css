@@ -1,0 +1,168 @@
+.patientcont {
+  border: 5px solid black;
+  width: 550px;
+  height: auto;
+  margin: auto;
+  font-size: large;
+}
+.cont {
+  width: 80%;
+  margin: auto;
+  height: auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.table {
+  width: 100%;
+  height: 80px;
+
+  margin-left: 20px;
+  display: flex;
+  text-align: center;
+
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.table div {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment {
+  width: 45%;
+  text-align: center;
+  align-items: center;
+}
+.table .table-text {
+  width: 18.333333%;
+}
+.contdata {
+  width: 100%;
+  height: 80px;
+  margin-left: 20px;
+  display: flex;
+  text-align: center;
+
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.contdata div {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.cancel {
+  background-color: white;
+  color: red;
+  cursor: pointer;
+
+  border: 1px solid black;
+}
+.edit {
+  background-color: white;
+  color: green;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.newcont {
+  width: 350px;
+  height: auto;
+  border: 2px solid black;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.choose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.choose div {
+  border: 2px solid black;
+  height: 80px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Optional, if you want to center the text horizontally */
+}
+form {
+  position: relative;
+}
+select {
+  border: 2px solid black;
+  height: 83px;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: large;
+}
+option {
+  width: 100%;
+  height: 100%;
+}
+.newappointment {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px; /* Adjust height to match other divs */
+  border: 2px solid black; /* Add border to match other divs */
+}
+
+.newappointment div {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.newappointment select {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  text-align: center;
+}
+.reserve {
+  width: 200px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid black;
+  margin-top: 60px;
+  margin-left: 180px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.btnnn {
+  width: 110px;
+  height: 30px;
+  background-color: red;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

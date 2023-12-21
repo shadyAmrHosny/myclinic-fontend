@@ -1,0 +1,65 @@
+<div id="container">
+  <div name="User" id="UserT">hello ,User (user Type :Doctor)</div>
+  <h1 style="margin-left: 30px">My Slots</h1>
+  <button (click)="logout()">Logout</button>
+  <table>
+    <tr>
+      <td colspan="1">Date</td>
+      <td colspan="1">Hour</td>
+      <td>Update</td>
+      <td>Delete</td>
+    </tr>
+    <div>
+      <tr *ngFor="let slot of slots">
+        <td>{{ slot.date }}</td>
+        <td>{{ slot.hour }}</td>
+
+        <td>
+          <input
+            type="button"
+            value="Edit"
+            class="btn btn-primary"
+            style="background-color: black"
+          />
+        </td>
+        <td>
+          <button
+            class="btn btn-primary"
+            style="background-color: red"
+            (click)="deleteSlot(slot)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </div>
+  </table>
+  <br />
+
+  <h1 style="margin-left: 30px">Create New Slot</h1>
+  <form (ngSubmit)="addSlot(slov2)">
+    <table style="width: 400px; height: 200px">
+      <tr>
+        <td>Date</td>
+        <td>
+          <input type="date" name="date" id="date" [(ngModel)]="slov2.date" />
+        </td>
+      </tr>
+      <tr>
+        <td>Hour</td>
+        <td>
+          <input type="number" name="time" id="time" [(ngModel)]="slov2.hour" />
+        </td>
+      </tr>
+      <br />
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-left: 150px; width: 50%"
+      >
+        Add Slot
+      </button>
+    </table>
+  </form>
+</div>

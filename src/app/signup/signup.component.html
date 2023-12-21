@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <section class="container">
+      <div class="login-container">
+        <div class="circle circle-one"></div>
+        <div class="form-container">
+          <img src="assets/login.png" alt="illustration" class="illustration" />
+          <h1 class="opacity">SIGNUP</h1>
+
+          <form (ngSubmit)="onSubmit()">
+            <input
+              placeholder="NAME"
+              [(ngModel)]="name"
+              type="name"
+              id="name"
+              class="form-control"
+              name="name"
+              required
+            />
+            <input
+              placeholder="EMAIL"
+              [(ngModel)]="email"
+              type="email"
+              id="email"
+              class="form-control"
+              name="email"
+              required
+            />
+
+            <input
+              placeholder="PASSWORD"
+              [(ngModel)]="password"
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+              required
+            />
+            <input
+              placeholder="CONFIRM PASSWORD"
+              [(ngModel)]="passwordConfirm"
+              type="password"
+              id="confirmpassword"
+              class="form-control"
+              name="confirmpassword"
+              required
+            />
+            <div>
+              <div class="usertype">USER TYPE</div>
+              <div class="doctorbtn">
+                <div>DOCTOR</div>
+                <input
+                  type="radio"
+                  name="userType"
+                  [(ngModel)]="role"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="doctor"
+                  id="doctor"
+                />
+              </div>
+              <div class="patientbtn">
+                <div>PATIENT</div>
+                <input
+                  type="radio"
+                  name="userType"
+                  [(ngModel)]="role"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="patient"
+                  id="patient"
+                />
+              </div>
+            </div>
+
+            <button class="opacity" type="submit" id="signup">SUBMIT</button>
+          </form>
+        </div>
+        <div class="circle circle-two"></div>
+      </div>
+      <div class="theme-btn-container"></div>
+    </section>
+  </body>
+</html>
