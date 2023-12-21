@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 interface Slot {
   av: any;
   date: string;
@@ -32,6 +34,7 @@ interface doctor {
   styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent implements OnInit {
+  apiUrl: string = environment.apiUrl;
   doctorId: string = '';
   patientData: any;
   patientName: string = '';
@@ -56,7 +59,7 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {}
   getDoctors(): void {
     this.http
-      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/?role=doctor')
+      .get(this.apiUrl+'/api/v1/users/?role=doctor')
       .subscribe((response: any) => {
         // console.log(response.data);
         this.Doctors = response.data.users;
@@ -66,7 +69,7 @@ export class UpdateComponent implements OnInit {
 
   getDoctorAppointment(id: any): void {
     this.http
-      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/doctorSlots/' + this.doctorId)
+      .get(this.apiUrl+'/api/v1/users/doctorSlots/' + this.doctorId)
       .subscribe((response: any) => {
         console.log();
         this.selectedSlots = response.data.slots;

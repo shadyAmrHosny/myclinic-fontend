@@ -2,12 +2,15 @@ import { Component, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { signupresponse } from '../signupresponse';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+  apiUrl: string = environment.apiUrl;
   email: string = '';
   name: string = '';
   password: string = '';
@@ -34,7 +37,7 @@ export class SignupComponent {
     };
     //Send the user registration data to the backend
     this.http
-      .post<any>('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/signup', userData)
+      .post<any>(this.apiUrl+'/api/v1/users/signup', userData)
       .subscribe(
         (response) => {
           this.registrationSuccess = true;

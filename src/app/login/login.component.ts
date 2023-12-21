@@ -6,12 +6,15 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { DoctorService } from '../doctor.service';
 import { PatientService } from '../patient.service';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  apiUrl: string = environment.apiUrl;
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -35,7 +38,7 @@ export class LoginComponent {
     };
     //send data of user
     this.http
-      .post<any>('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/login', data)
+      .post<any>(this.apiUrl+'/api/v1/users/login', data)
       .subscribe(
         (response: any) => {
           localStorage.setItem('token', response.token);

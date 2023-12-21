@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DoctorService } from '../doctor.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 interface Slot {
   av: any;
   date: string;
@@ -20,6 +21,7 @@ interface getslots {
   styleUrls: ['./doctor.component.css'],
 })
 export class DoctorComponent implements OnInit {
+  apiUrl: string = environment.apiUrl;
   doctorData: any;
   selectedDate: string = '';
   selectedTime: string = '';
@@ -38,7 +40,7 @@ export class DoctorComponent implements OnInit {
   }
   getDoctor() {
     this.http
-      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/me')
+      .get(this.apiUrl+'/api/v1/users/me')
       .subscribe((response: any) => {
         this.doctorData = response.data;
         console.log(response.data);
@@ -64,7 +66,7 @@ export class DoctorComponent implements OnInit {
   // }
   addSlot(slot: getslots): void {
     this.http
-      .post('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/slots', slot)
+      .post(this.apiUrl+'/api/v1/slots', slot)
       .subscribe((response: any) => {
         this.getDoctor();
         console.log(response.data);
@@ -82,7 +84,7 @@ export class DoctorComponent implements OnInit {
     const indx = this.slots.indexOf(slot);
     if (indx > -1) {
       this.http
-        .delete('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/slots/' + this.slots[indx]._id)
+        .delete(this.apiUrl+'/api/v1/slots/' + this.slots[indx]._id)
         .subscribe((response) => {
           this.slots.splice(indx, 1);
           this.getDoctor();

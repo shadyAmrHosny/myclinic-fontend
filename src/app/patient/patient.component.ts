@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { newAppointment } from '../newAppointment';
 import { AuthService } from '../auth.service';
+import { environment } from '../../environments/environment';
+
 
 interface Slot {
   av: any;
@@ -36,6 +38,7 @@ interface slottt {
   styleUrls: ['./patient.component.css'],
 })
 export class PatientComponent implements OnInit {
+  apiUrl: string = environment.apiUrl;
   ngOnInit(): void {
     this.fetchAppointments();
     this.getDoctors();
@@ -131,7 +134,7 @@ export class PatientComponent implements OnInit {
   // }
 
   fetchAppointments(): void {
-    this.http.get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/me').subscribe(
+    this.http.get(this.apiUrl+'/api/v1/users/me').subscribe(
       (response: any) => {
         this.patientData = response.data;
         // console.log(response.data);
@@ -145,7 +148,7 @@ export class PatientComponent implements OnInit {
   }
   addAppointment(slotid: any): void {
     this.http
-      .post('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/appointments/', slotid)
+      .post(this.apiUrl+'/api/v1/appointments/', slotid)
       .subscribe((response: any) => {
         console.log(slotid);
         this.fetchAppointments();
@@ -162,7 +165,7 @@ export class PatientComponent implements OnInit {
 
   getDoctors(): void {
     this.http
-      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/?role=doctor')
+      .get(this.apiUrl+'/api/v1/users/?role=doctor')
       .subscribe((response: any) => {
         // console.log(response.data);
         this.Doctors = response.data.users;
@@ -172,7 +175,7 @@ export class PatientComponent implements OnInit {
 
   getDoctorAppointment(id: any): void {
     this.http
-      .get('https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/users/doctorSlots/' + id)
+      .get(this.apiUrl+'/api/v1/users/doctorSlots/' + id)
       .subscribe((response: any) => {
         console.log(response);
         this.selectedSlots = response.data.slots;
@@ -185,7 +188,7 @@ export class PatientComponent implements OnInit {
     if (indx > -1) {
       this.http
         .delete(
-          'https://my-clinic-backend-git-shadyamr24-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/v1/appointments/' +
+          this.apiUrl+'/api/v1/appointments/' +
             this.appointments[indx]._id
         )
         .subscribe((response) => {
